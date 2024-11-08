@@ -1,0 +1,31 @@
+int	ft_strlen(char *str)
+{
+	int	count;
+
+	count = 0;
+	while (str[count])
+		count++;
+	return (count);
+}
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int	count;
+	unsigned int	length;
+	unsigned int	dest_length;
+	unsigned int	src_length;
+
+	count = 0;
+	length = ft_strlen(dest);
+	dest_length = ft_strlen(dest);
+	src_length = ft_strlen(src);
+	if (size <= dest_length)
+		return (size + src_length);
+	while (src[count] && count < size - dest_length - 1)
+	{
+		dest[length + count] = src[count];
+		count++;
+	}
+	dest[length + count] = '\0';
+	return (dest_length + src_length);
+}
