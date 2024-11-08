@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   isalpha.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:55:22 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/08 09:55:27 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/08 09:48:33 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/08 09:53:06 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putnbr(int nb)
+int	ft_isalpha(char c)
 {
-	char	c;
-
-	if (nb == -2147483648)
-	{
-		write(1, "-2", 2);
-		nb = 147483648;
-	}
-	if (nb < 0)
-	{
-		nb *= -1;
-		write(1, "-", 1);
-	}
-	if (nb < 10)
-	{
-		c = nb + 48;
-		write(1, &c, 1);
-	}
-	else
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	else if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }

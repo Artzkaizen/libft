@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:55:22 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/08 09:55:27 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/08 10:35:27 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/08 10:35:33 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putnbr(int nb)
+int	ft_isalnum(char *str)
 {
-	char	c;
-
-	if (nb == -2147483648)
-	{
-		write(1, "-2", 2);
-		nb = 147483648;
-	}
-	if (nb < 0)
-	{
-		nb *= -1;
-		write(1, "-", 1);
-	}
-	if (nb < 10)
-	{
-		c = nb + 48;
-		write(1, &c, 1);
-	}
-	else
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+	if (*str >= 65 && *str <= 90)
+		return (1);
+	else if (*str >= 97 && *str <= 122)
+		return (2);
+	else if (*str >= 48 && *str <= 57)
+		return (3);
+	return (0);
 }

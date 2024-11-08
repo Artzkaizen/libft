@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   strcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:55:22 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/08 09:55:27 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/08 09:53:32 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/08 09:53:33 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putnbr(int nb)
+char	*ft_strcpy(char *dest, char *src)
 {
-	char	c;
+	int	count;
 
-	if (nb == -2147483648)
+	count = 0;
+	while (src[count])
 	{
-		write(1, "-2", 2);
-		nb = 147483648;
+		dest[count] = src[count];
+		count++;
 	}
-	if (nb < 0)
-	{
-		nb *= -1;
-		write(1, "-", 1);
-	}
-	if (nb < 10)
-	{
-		c = nb + 48;
-		write(1, &c, 1);
-	}
-	else
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+	dest[count] = '\0';
+	return (dest);
 }

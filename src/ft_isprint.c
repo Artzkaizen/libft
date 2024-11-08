@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 14:32:27 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/10/11 14:33:59 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/08 10:35:43 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/08 10:35:45 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	*ft_memalloc(size_t size)
+int	ft_isprint(int c)
 {
-	return (malloc(size));
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }
