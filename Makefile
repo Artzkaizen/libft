@@ -70,8 +70,8 @@ $(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c
 	@echo "Compiled $< to $@"
 
 # Rule to build the test runner (including Unity)
-$(TARGET): $(TEST_OBJS)
-	$(CC) $(TEST_OBJS) $(OBJS) -o $(TARGET) -L libft.a $(UNITY_DIR)/unity.c $(LDFLAGS)
+$(TARGET): $(TEST_OBJS) $(OBJS)
+	$(CC) $(TEST_OBJS) $(OBJS) -o $(TARGET) $(UNITY_DIR)/unity.c $(NAME) $(LDFLAGS)
 
 # Run tests
 test: $(TARGET)
