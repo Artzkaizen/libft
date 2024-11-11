@@ -2,4 +2,7 @@ req/
 obj/
 main.c
 libft.a
-unity-2.6.0/
+unity
+.vscode/
+$(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+test_runner

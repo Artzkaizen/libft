@@ -6,19 +6,11 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:45:18 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/08 09:45:18 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:38:15 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	count;
-
-	count = 0;
-	while (str[count])
-		count++;
-	return (count);
-}
+#include "libft.h"
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {

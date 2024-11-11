@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:44:55 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/08 09:44:56 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/11 17:33:50 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,17 @@ int	ft_atoi(char *str)
 	int	sign;
 
 	nb = 0;
-	sign = 1;
+	sign = 0;
 	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
 		str++;
 	while (*str == '-' || *str == '+')
 	{
-		if (*str == '-')
-			sign *= -1;
+		if (!sign)
+			return (nb);
+		else if (*str == '-')
+			sign--;
+		else 
+			sign++;
 		str++;
 	}
 	while ((*str >= '0' && *str <= '9'))

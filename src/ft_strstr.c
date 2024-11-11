@@ -6,16 +6,12 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:46:04 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/08 09:46:05 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:39:35 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	return (*s1 - *s2);
-}
+#include "libft.h"
 
 char	*ft_strstr(char *str, char *to_find)
 {
