@@ -35,16 +35,17 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 TESTS		:= ft_atoi.test.c
 TESTS		:= $(TESTS:%=$(TEST_DIR)/%)
 TEST_OBJS	:= $(TESTS:$(TEST_DIR)/%.c=$(TEST_OBJ_DIR)/%.o)
-
+CRITERION	:= ${HOME}/sgoinfre/linuxbrew/.linuxbrew/Cellar/criterion/2.4.2_1/include
 
 # Include paths
-INCLUDES        := -I $(UNITY_DIR) -I $(INC_DIR)
+INCLUDES		:= -I $(INC_DIR) -I $(CRITERION)
+
 
 # Compiler and flags
 CC              := cc
 CFLAGS          := -Wall -Wextra -Werror $(INCLUDES)
 DEBUG           := -g -fsanitize=leak
-LDFLAGS         :=
+LDFLAGS			:= -L${HOME}/sgoinfre/linuxbrew/.linuxbrew/Cellar/criterion/2.4.2_1/lib -lcriterion
 
 # Library archiving flags
 LIBFLAGS        := ar rcs
@@ -71,7 +72,7 @@ $(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c
 
 # Rule to build the test runner (including Unity)
 $(TARGET): $(TEST_OBJS) $(OBJS)
-	$(CC) $(TEST_OBJS) $(OBJS) -o $(TARGET) $(UNITY_DIR)/unity.c $(NAME) $(LDFLAGS)
+	$(CC) $(TEST_OBJS) $(OBJS) -o $(TARGET) $(NAME) $(LDFLAGS)
 
 # Run tests
 test: $(TARGET)

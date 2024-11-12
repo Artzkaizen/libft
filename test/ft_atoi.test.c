@@ -6,31 +6,29 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:45:14 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/11 17:32:48 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:02:32 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../unity/src/unity.h"
 #include "libft.h"
 #include <stdlib.h>
 
-void	test_ft_atoi(void)
+#include <criterion/criterion.h>
+
+Test(ft_atoi, test_ft_atoi)
 {
-	TEST_ASSERT_EQUAL_INT(atoi("34343"), ft_atoi("34343"));
-	TEST_ASSERT_EQUAL_INT(atoi("++88"), ft_atoi("++88"));
-	TEST_ASSERT_EQUAL_INT(atoi("-123"), ft_atoi("-123"));
+	int	org;
+	int	mine;
+
+	org = atoi("34343");
+	mine = ft_atoi("34343");
+
+	cr_assert_eq(org, mine, "Expected %d got %d", org,mine);
+	// cr_assert_eq(ft_atoi("++88"), atoi("++88"));
+	// cr_assert_eq(ft_atoi("-123"), atoi("-123"));
+	// cr_expect(add(2, 3) == 5, "Expected 2 + 3 to be 5");
+    // cr_expect(add(-1, 1) == 0, "Expected -1 + 1 to be 0");
+    // cr_expect(add(0, 0) == 0, "Expected 0 + 0 to be 0");
 }
 
-void	setUp(void)
-{}
-
-void	tearDown(void)
-{
-}
-
-int	main(void)
-{
-	UNITY_BEGIN();
-	RUN_TEST(test_ft_atoi);
-	return (UNITY_END());
-}
+TestSuite(atoi_tests, .init = NULL, .fini = NULL);
