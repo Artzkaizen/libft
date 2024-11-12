@@ -6,11 +6,11 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:44:55 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/12 19:06:20 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:38:09 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	nb;
 	int	sign;

@@ -6,29 +6,42 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:45:14 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/12 19:02:32 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:53:56 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 #include <criterion/criterion.h>
 
-Test(ft_atoi, test_ft_atoi)
-{
-	int	org;
-	int	mine;
 
-	org = atoi("34343");
-	mine = ft_atoi("34343");
+static char *test_description(const char *str, int expected, int actual) {
+        char *result = malloc(256 * sizeof(char));
 
-	cr_assert_eq(org, mine, "Expected %d got %d", org,mine);
-	// cr_assert_eq(ft_atoi("++88"), atoi("++88"));
-	// cr_assert_eq(ft_atoi("-123"), atoi("-123"));
-	// cr_expect(add(2, 3) == 5, "Expected 2 + 3 to be 5");
-    // cr_expect(add(-1, 1) == 0, "Expected -1 + 1 to be 0");
-    // cr_expect(add(0, 0) == 0, "Expected 0 + 0 to be 0");
+    if (result == NULL)
+        return NULL;
+    snprintf(result, 256, "Test failed for input: '%s'. Expected %d but got %d", str, expected, actual);
+    return result;
+}
+
+Test(ft_atoi, test_ft_atoi) {
+    const char *str[] = {
+        "-2149",               // Negative number
+        "2148",                // Positive number
+        "abc123",              // Non-numeric string
+        "  42 is the answer",  // String with leading spaces
+        "000789",              // Number with leading zeros
+        " "                    // Empty string (only space)
+    };
+    for (size_t i = 0; i < sizeof(str) / sizeof(str[0]); i++) {
+        int expected = atoi(str[i]);
+        int actual = ft_atoi(str[i]); 
+
+		char *description = test_description(str[i], expected, actual);
+        cr_assert_eq(expected, actual, "%s", description);
+		free(description);
+    }
 }
 
 TestSuite(atoi_tests, .init = NULL, .fini = NULL);

@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:00:16 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/08 10:02:31 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:53:06 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int				ft_isalpha(char c);
 int				ft_isdigit(char c);
 int				ft_strlen(char *str);
 void			ft_putnbr(int nb);
-int				ft_isalnum(char *str);
-int				ft_atoi(char *str);
+int				ft_isalnum(int c);
+int				ft_atoi(const char *str);
 char			*ft_strdup(const char *s);
 int				ft_strcmp(char *s1, char *s2);
 char			*ft_strstr(char *str, char *to_find);
