@@ -33,7 +33,8 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Test files
 TESTS		:= ft_atoi.test.c \
-               ft_isalnum.test.c
+               ft_isalnum.test.c \
+               ft_isalpha.test.c
 TESTS		:= $(TESTS:%=$(TEST_DIR)/%)
 TEST_OBJS	:= $(TESTS:$(TEST_DIR)/%.c=$(TEST_OBJ_DIR)/%.o)
 CRITERION	:= ${HOME}/sgoinfre/linuxbrew/.linuxbrew/Cellar/criterion/2.4.2_1/include
