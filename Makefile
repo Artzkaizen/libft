@@ -29,7 +29,8 @@ SRCS            := ft_atoi.c \
                    ft_toupper.c \
                    ft_strdup.c \
 			       ft_bzero.c \
-			       ft_memset.c
+			       ft_memset.c \
+			       ft_memcpy.c
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -40,7 +41,8 @@ TESTS		:= ft_atoi.test.c \
                ft_isalpha.test.c \
 			   ft_strstr.test.c \
 			   ft_bzero.test.c \
-			   ft_memset.test.c
+			   ft_memset.test.c \
+			   ft_memcpy.test.c
 TESTS		:= $(TESTS:%=$(TEST_DIR)/%)
 TEST_OBJS	:= $(TESTS:$(TEST_DIR)/%.c=$(TEST_OBJ_DIR)/%.o)
 CRITERION	:= ${HOME}/sgoinfre/linuxbrew/.linuxbrew/Cellar/criterion/2.4.2_1/include
