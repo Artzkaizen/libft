@@ -31,7 +31,6 @@ SRCS            := ft_atoi.c \
 			       ft_bzero.c \
 			       ft_memset.c \
 			       ft_memcpy.c
-
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
