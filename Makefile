@@ -16,6 +16,7 @@ SRCS            := ft_atoi.c \
                    ft_strcmp.c \
                    ft_strlcat.c \
                    ft_strncmp.c \
+                   ft_strnstr.c \
                    ft_strstr.c \
                    ft_isalpha.c \
                    ft_isalnum.c \
@@ -26,7 +27,9 @@ SRCS            := ft_atoi.c \
                    ft_strcpy.c \
                    ft_tolower.c \
                    ft_toupper.c \
-                   ft_strdup.c
+                   ft_strdup.c \
+			       ft_bzero.c \
+			       ft_memset.c
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -34,7 +37,10 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 # Test files
 TESTS		:= ft_atoi.test.c \
                ft_isalnum.test.c \
-               ft_isalpha.test.c
+               ft_isalpha.test.c \
+			   ft_strstr.test.c \
+			   ft_bzero.test.c \
+			   ft_memset.test.c
 TESTS		:= $(TESTS:%=$(TEST_DIR)/%)
 TEST_OBJS	:= $(TESTS:$(TEST_DIR)/%.c=$(TEST_OBJ_DIR)/%.o)
 CRITERION	:= ${HOME}/sgoinfre/linuxbrew/.linuxbrew/Cellar/criterion/2.4.2_1/include
@@ -58,6 +64,10 @@ RM              := rm -f
 # Default target (build library)
 all: $(NAME)
 
+# Run tests
+test: $(TARGET)
+	./$(TARGET)
+
 # Rule to build the static library
 $(NAME): $(OBJS)
 	$(LIBFLAGS) $(NAME) $(OBJS)
@@ -76,9 +86,6 @@ $(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c
 $(TARGET): $(TEST_OBJS) $(OBJS)
 	$(CC) $(TEST_OBJS) $(OBJS) -o $(TARGET) $(NAME) $(LDFLAGS)
 
-# Run tests
-test: $(TARGET)
-	./$(TARGET)
 
 # Clean rule (remove object files)
 clean:

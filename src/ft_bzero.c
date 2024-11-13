@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:46:04 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/13 17:24:31 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/13 19:08:11 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/13 19:09:19 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-char	*ft_strstr(const char *str, const char *to_find)
+void	*ft_bzero(void *s, size_t n)
 {
-	int	i;
-	int	find_len;
-	int	count;
+	size_t	i;
+	char	*dest;
 
 	i = 0;
-	find_len = ft_strlen((char *)to_find);
-	if (str == to_find || !find_len)
-		return ((char *)str);
-	while (str[i])
-	{
-		count = 0;
-		while (str[count + i] && to_find[count] 
-			&& str[i + count] == to_find[count])
-			count++;
-		if (to_find[count] == '\0')
-			return ((char *)&str[i]);
-		i++;
-	}
-	return (NULL);
+	dest = s;
+	while (i < n)
+		dest[i++] = 0;
+	return (dest);
 }

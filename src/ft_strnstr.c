@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:46:04 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/13 17:24:31 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/13 17:31:32 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/13 17:44:36 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-char	*ft_strstr(const char *str, const char *to_find)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	int	i;
-	int	find_len;
-	int	count;
+	int		len;
+	size_t	index;
+	size_t	count;
 
-	i = 0;
-	find_len = ft_strlen((char *)to_find);
-	if (str == to_find || !find_len)
-		return ((char *)str);
-	while (str[i])
+	index = 0;
+	len = ft_strlen((char *)needle);
+	if (haystack == needle || !len)
+		return ((char *)haystack);
+	while (haystack[index] && index < n)
 	{
 		count = 0;
-		while (str[count + i] && to_find[count] 
-			&& str[i + count] == to_find[count])
+		while (haystack[count + index] && needle[count] 
+			&& haystack[index + count] == needle[count])
 			count++;
-		if (to_find[count] == '\0')
-			return ((char *)&str[i]);
-		i++;
+		if (needle[count] == '\0')
+			return ((char *)&haystack[index]);
+		index++;
 	}
-	return (NULL);
+	return (0);
 }

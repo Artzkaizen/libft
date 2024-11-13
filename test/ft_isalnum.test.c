@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 19:48:05 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/12 19:53:47 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:30:57 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,9 @@ Test(ft_isalnum_tests, test_ft_isalnum) {
     
     // Loop over the test inputs
     for (size_t i = 0; i < sizeof(inputs) / sizeof(inputs[0]); i++) {
-        // Get the current character to test
         char c = inputs[i][0];
         
-        // Determine if the current character is alphanumeric
-        int expected = (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+        int expected = 	isalnum(c);
         int actual = ft_isalnum(c); // Test your custom `ft_isalnum`
 
         // Get the description message for test failure
@@ -48,6 +46,7 @@ Test(ft_isalnum_tests, test_ft_isalnum) {
 
         // Perform the test and show the description on failure
         cr_assert_eq(actual, expected, "%s", desc);
+
 
         // Free the allocated memory for the description
         free(desc);
