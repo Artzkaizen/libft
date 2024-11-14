@@ -13,8 +13,10 @@ TEST_OBJ_DIR    := test/obj
 # Source files
 SRCS            := ft_atoi.c \
                    ft_putnbr.c \
+                   ft_strdup.c \
                    ft_strcmp.c \
                    ft_strlcat.c \
+				   ft_strlen.c \
                    ft_strncmp.c \
                    ft_strnstr.c \
                    ft_strstr.c \
@@ -25,10 +27,8 @@ SRCS            := ft_atoi.c \
                    ft_isprint.c \
                    ft_tolower.c \
                    ft_toupper.c \
-                   ft_strdup.c \
 			       ft_bzero.c \
 			       ft_memset.c \
-			       ft_strlcat.c \
 			       ft_memcmp.c \
 			       ft_memchr.c \
 			       ft_strchr.c \
@@ -42,7 +42,6 @@ OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 # Test files
 TESTS		:= ft_atoi.test.c \
                ft_isalnum.test.c \
-			   ft_strlcat.c \
                ft_isalpha.test.c \
 			   ft_strstr.test.c \
 			   ft_bzero.test.c \

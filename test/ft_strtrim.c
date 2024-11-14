@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:27:34 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/14 17:53:56 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/14 18:42:45 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/14 19:31:36 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strchr(const char *s, int c)
+#include "libft.h"
+#include <stdlib.h>
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
+	size_t	i;
+	size_t	len;
+	char	*str;
+	char	*tmp;
 
 	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			return ((char *)s);
-		i++;
-	}
-	return (0);
+	tmp = ft_strstr(s1, set);
+	if (!tmp)
+		return (tmp);
+	len = ft_strlen(s1) - ft_strlen(set);
+	str = (char *)malloc(sizeof(char) * len + 1);
+	if (!str)
+		return (str);
+	return ("dfds");
 }

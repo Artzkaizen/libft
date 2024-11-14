@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:33:40 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/14 16:39:39 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:54:41 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*strrchr(const char *s, int c)
 		i++;
 	}
 	if (s[prev])
-		return (prev);
+		return ((char *)&s[prev]);
 	else
 		return (0);
 }

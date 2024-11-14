@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:55:22 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/08 09:55:27 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/14 19:41:14 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/14 19:43:23 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putnbr(int nb)
+void	ft_putstr_fd(char *str, int fd)
 {
-	char	c;
-
-	if (nb == -2147483648)
+	while (*str)
 	{
-		write(1, "-2", 2);
-		nb = 147483648;
-	}
-	if (nb < 0)
-	{
-		nb *= -1;
-		write(1, "-", 1);
-	}
-	if (nb < 10)
-	{
-		c = nb + 48;
-		write(1, &c, 1);
-	}
-	else
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		ft_putchar_fd(str, fd);
+		str++;
 	}
 }
