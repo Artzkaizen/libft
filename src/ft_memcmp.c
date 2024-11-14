@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:45:25 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/14 16:25:45 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/14 17:38:21 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/14 17:41:21 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned int	size;
-	unsigned int	index;
+	int		index;
+	char	*src1;
+	char	*src2;
 
-	size = n;
+	src1 = s1;
+	src2 = s2;
 	index = 0;
-	while (s1[index] == s2[index] && s1[index] && s2[index] && index < size)
+	while (src1[index] == src2[index] && src1[index] && src2[index])
 		index++;
-	if (index == n)
-		return (0);
-	else
-		return (s1[index] - s2[index]);
+	return (src1[index] - src2[index]);
 }

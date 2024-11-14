@@ -23,20 +23,26 @@ SRCS            := ft_atoi.c \
                    ft_isascii.c \
                    ft_isdigit.c \
                    ft_isprint.c \
-                   ft_strcat.c \
-                   ft_strcpy.c \
                    ft_tolower.c \
                    ft_toupper.c \
                    ft_strdup.c \
 			       ft_bzero.c \
 			       ft_memset.c \
+			       ft_strlcat.c \
+			       ft_memcmp.c \
+			       ft_memchr.c \
+			       ft_strchr.c \
+			       ft_strrchr.c \
+			       ft_strlcpy.c \
 			       ft_memcpy.c
+
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Test files
 TESTS		:= ft_atoi.test.c \
                ft_isalnum.test.c \
+			   ft_strlcat.c \
                ft_isalpha.test.c \
 			   ft_strstr.test.c \
 			   ft_bzero.test.c \

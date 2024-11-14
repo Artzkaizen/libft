@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcat.c                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:53:21 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/08 09:53:25 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/14 16:33:40 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/14 16:39:39 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+char	*strrchr(const char *s, int c)
 {
-	int	count;
+	int	i;
+	int	prev;
 
-	count = 0;
-	while (str[count])
-		count++;
-	return (count);
-}
-
-char	*ft_strcat(char *dest, char *src)
-{
-	int	count;
-	int	lenght;
-
-	count = 0;
-	lenght = ft_strlen(dest);
-	while (src[count])
+	i = 0;
+	prev = 0;
+	while (s[i])
 	{
-		dest[lenght + count] = src[count];
-		count++;
+		if (s[i] == c && prev != 0)
+			prev = i;
+		i++;
 	}
-	dest[lenght + count] = '\0';
-	return (dest);
+	if (s[prev])
+		return (prev);
+	else
+		return (0);
 }

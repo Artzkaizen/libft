@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:45:25 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/14 16:25:45 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/14 16:40:41 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/14 17:37:40 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned int	size;
-	unsigned int	index;
+	size_t	i;
+	char	*src;
 
-	size = n;
-	index = 0;
-	while (s1[index] == s2[index] && s1[index] && s2[index] && index < size)
-		index++;
-	if (index == n)
-		return (0);
-	else
-		return (s1[index] - s2[index]);
+	i = 0;
+	src = (unsigned char *)s;
+	while (src[i])
+	{
+		if (src[i] == (unsigned char)c)
+			return (s);
+		i++;
+	}
+	return (0);
 }
