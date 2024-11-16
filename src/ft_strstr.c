@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
+#include <string.h>
 
 char	*ft_strstr(const char *str, const char *to_find)
 {
@@ -26,8 +26,8 @@ char	*ft_strstr(const char *str, const char *to_find)
 	while (str[i])
 	{
 		count = 0;
-		while (str[count + i] && to_find[count] 
-			&& str[i + count] == to_find[count])
+		while (str[count + i] && to_find[count] && str[i
+			+ count] == to_find[count])
 			count++;
 		if (to_find[count] == '\0')
 			return ((char *)&str[i]);

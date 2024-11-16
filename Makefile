@@ -12,13 +12,13 @@ TEST_OBJ_DIR    := test/obj
 
 # Source files
 SRCS            := ft_atoi.c \
-                   ft_putnbr.c \
                    ft_strdup.c \
                    ft_strcmp.c \
                    ft_strlcat.c \
 				   ft_strlen.c \
                    ft_strncmp.c \
                    ft_strnstr.c \
+                   ft_strjoin.c \
                    ft_strstr.c \
                    ft_isalpha.c \
                    ft_isalnum.c \

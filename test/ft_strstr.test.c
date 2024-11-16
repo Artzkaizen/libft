@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 17:01:34 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/13 19:06:34 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/14 22:01:49 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include <string.h>
 #include "libft.h"
 
-typedef struct s_strstr_test_case {
-	const char	*str;
+typedef struct s_strstr_test_case {const char	*str;
 	const char	*to_find;
 }	t_strstr_test_case;
 

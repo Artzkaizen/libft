@@ -6,12 +6,11 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:45:14 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/12 19:53:56 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/15 21:42:54 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 #include <stdio.h>
 #include <criterion/criterion.h>
 
