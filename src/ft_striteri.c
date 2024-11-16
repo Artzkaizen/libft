@@ -6,11 +6,18 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:04:09 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/14 20:05:44 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/16 19:21:37 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	return ;
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, s);
+		i++;
+	}
 }
