@@ -6,11 +6,11 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:27:34 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/14 17:53:56 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/16 21:24:50 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 

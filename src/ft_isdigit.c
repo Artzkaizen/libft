@@ -6,11 +6,11 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:50:14 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/13 16:57:01 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/16 20:23:55 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (c);

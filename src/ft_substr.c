@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:19:36 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/15 21:53:19 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/16 21:34:11 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	char	*sub;
 	size_t	strlen;
 
@@ -28,5 +27,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub = (char *)malloc(len + 1);
 	if (!sub)
 		return (NULL);
-	return (ft_strncpy(sub, s + start, len));
+	ft_strlcpy(sub, s + start, len);
+	return (sub);
 }

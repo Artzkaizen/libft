@@ -6,11 +6,11 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:33:40 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/14 17:54:41 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/16 21:25:12 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 	int	prev;
