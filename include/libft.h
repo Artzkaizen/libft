@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:00:16 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/16 21:29:49 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/17 15:58:02 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 /*
 ** Returns the string of digits representing the given int.
@@ -235,4 +241,13 @@ char			*ft_strchr(const char *s, int c);
 in the string s, or NULL if the character is not found.
 */
 char			*ft_strrchr(const char *s, int c);
+
+t_list			*ft_lstnew(void const *content);
+int				ft_lstsize(t_list *lst);
+t_list			*ft_lstlast(t_list *lst);
+void			ft_lstiter(t_list *lst, void (*f)(void *));
+void			ft_lstadd_back(t_list **lst, t_list *new);
+void			ft_lstadd_front(t_list **lst, t_list *new);
+void			ft_lstdelone(t_list *lst, void (*del)(void*));
+void			ft_lstclear(t_list **lst, void (*del)(void*));
 #endif

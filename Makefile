@@ -10,23 +10,6 @@ UNITY_DIR       := ${HOME}/unity/src
 TEST_DIR        := test
 TEST_OBJ_DIR    := test/obj
 
-#    ft_lstnew.c \-
-#    ft_lstadd_front.c \-
-#    ft_lstsize.c \-
-#    ft_lstlast.c \-
-#    ft_lstadd_back.c \-
-#    ft_lstdelone.c \-
-#    ft_lstclear.c \-
-#    ft_lstiter.c \-
-#    ft_lstmap.c \-
-#    ft_strnew.c \-
-#    ft_strdel.c \-
-#    ft_strclr.c \-
-#    ft_striter.c \-
-#    ft_striteri.c \-
-#    ft_strmap.c \-
-#    ft_strequ.c \-
-
 # Source files
 SRCS            := ft_atoi.c \
                    ft_strdup.c \
@@ -60,8 +43,22 @@ SRCS            := ft_atoi.c \
 				   ft_putendl_fd.c \
 				   ft_putnbr_fd.c
 
+
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+BONUS		:=	ft_lstadd_back.c \
+                ft_lstadd_front.c \
+				ft_lstclear.c \
+				ft_lstdelone.c \
+				ft_lstiter.c \
+				ft_lstlast.c \
+				ft_lstmap.c \
+				ft_lstnew.c \
+				ft_lstsize.c
+
+BONUS		:= $(BONUS:%=$(SRC_DIR)/%)
+BONUS_OBJS	:= $(BONUS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Test files
 TESTS		:= ft_atoi.test.c \
@@ -115,6 +112,9 @@ $(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c
 $(TARGET): $(TEST_OBJS) $(OBJS)
 	$(CC) $(TEST_OBJS) $(OBJS) -o $(TARGET) $(NAME) $(LDFLAGS)
 
+# bonus
+bonus:	$(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 # Clean rule (remove object files)
 clean:
