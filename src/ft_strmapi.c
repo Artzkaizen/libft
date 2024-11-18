@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:01:09 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/16 19:14:24 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:39:30 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	len = ft_strlen(s);
-	new_str = (char *)malloc(sizeof(char) * (len));
+	new_str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!new_str)
 		return (NULL);
 	while (i < len)
@@ -28,5 +28,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		new_str[i] = (*f)(i, s[i]);
 		i++;
 	}
+	new_str[i] = '\0';
 	return (new_str);
 }

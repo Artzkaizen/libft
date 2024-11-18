@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:00:16 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/17 15:58:02 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:40:54 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,14 +240,18 @@ char			*ft_strchr(const char *s, int c);
 ** Returns the index of the last occurrence of the character c
 in the string s, or NULL if the character is not found.
 */
-char			*ft_strrchr(const char *s, int c);
+char		*ft_strrchr(const char *s, int c);
 
 t_list			*ft_lstnew(void const *content);
 int				ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
+void			*ft_calloc(size_t nmemb, size_t size);
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
+char			*ft_strtrim(char const *s1, char const *set);
 #endif

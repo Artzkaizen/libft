@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:40:41 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/14 17:53:42 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/18 14:59:05 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (src[i] && i < n)
 	{
 		if (src[i] == (unsigned char)c)
-			return (src);
+			return (&src[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

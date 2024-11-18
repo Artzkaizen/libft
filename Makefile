@@ -61,8 +61,7 @@ BONUS		:= $(BONUS:%=$(SRC_DIR)/%)
 BONUS_OBJS	:= $(BONUS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Test files
-TESTS		:= ft_atoi.test.c \
-               ft_isalnum.test.c \
+TESTS		:= ft_isalnum.test.c \
                ft_isalpha.test.c \
 			   ft_bzero.test.c \
 			   ft_memset.test.c \

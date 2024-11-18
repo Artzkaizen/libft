@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 23:26:10 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/17 15:48:01 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/18 20:05:24 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst || !f || !del)
 		return (NULL);
 	new_lst = NULL;
+	if (new_lst)
+		return (NULL); 
 	while (lst)
 	{
 		new_node = (t_list *)malloc(sizeof(t_list));
@@ -28,6 +30,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new_node->content = f(lst->content);
 		new_node->next = NULL;
 		ft_lstadd_back(&new_lst, new_node);
+		lst = lst->next;
 	}
 	return (new_lst);
 }

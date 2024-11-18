@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 22:18:46 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/16 22:19:57 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:42:29 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ int	ft_lstsize(t_list *lst)
 {
 	int	i;
 
-	while (lst->next)
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
 		i++;
+	}
 	return (i);
 }

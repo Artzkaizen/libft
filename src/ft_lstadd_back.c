@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 22:23:55 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/17 15:28:10 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/18 20:04:21 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!*lst)
-	{
-		*lst = new;
+	t_list	*tmp;
+
+	if (!lst || !new)
 		return ;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		tmp = *lst;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
 	}
-	while ((*lst)->next)
-		(*lst) = (*lst)->next;
-	(*lst)->next = new;
 }

@@ -6,31 +6,42 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:42:45 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/16 21:35:01 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:28:24 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_is_in_set(char c, const char *set)
 {
-	size_t	i;
-	size_t	len;
-	size_t	setlen;
-	char	*str;
+	int	i;
 
 	i = 0;
-	len = ft_strlen(s1);
-	setlen = ft_strlen(set);
-	while (ft_strncmp(&s1[i], set, setlen) == 0 && i < len)
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
 		i++;
-	while (ft_strncmp(&s1[len - setlen], set, setlen) == 0 && i < len)
-		len--;
-	if (i >= len)
+	}
+	return (0);
+}
+
+char	*ft_strtrim(const char *s1, const char *set)
+{
+	size_t	end;
+	size_t	start;
+
+	if (!s1)
 		return (ft_strdup(""));
-	str = (char *)malloc(sizeof(char) * (len - i + 1));
-	if (!str)
-		return (str);
-	ft_strlcpy(str, &s1[i], len - i);
-	return (str);
+	if (!set)
+		return (ft_strdup(s1));
+	start = 0;
+	end = ft_strlen(s1);
+	while (ft_is_in_set(s1[start], set))
+		start++;
+	if (start == end)
+		return (ft_strdup(""));
+	while (ft_is_in_set(s1[end - 1], set))
+		end--;
+	return (ft_substr(s1, start, end - start));
 }
