@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:00:16 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/18 17:40:54 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:19:41 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,7 +240,7 @@ char			*ft_strchr(const char *s, int c);
 ** Returns the index of the last occurrence of the character c
 in the string s, or NULL if the character is not found.
 */
-char		*ft_strrchr(const char *s, int c);
+char			*ft_strrchr(const char *s, int c);
 
 t_list			*ft_lstnew(void const *content);
 int				ft_lstsize(t_list *lst);

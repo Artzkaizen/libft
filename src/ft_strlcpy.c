@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:45:18 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/18 18:36:26 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:16:09 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	count;
-	size_t	dest_lenght;
 	size_t	src_lenght;
 
 	count = 0;
-	dest_lenght = ft_strlen(dest);
 	src_lenght = ft_strlen(src);
 	if (size == 0)
 		return (src_lenght);
