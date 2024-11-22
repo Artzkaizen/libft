@@ -14,8 +14,11 @@ TEST_OBJ_DIR    := test/obj
 SRCS            := ft_atoi.c \
                    ft_strdup.c \
                    ft_strlcat.c \
+                   ft_calloc.c \
 				   ft_strlen.c \
                    ft_strncmp.c \
+                   ft_striteri.c \
+                   ft_memmove.c \
                    ft_strnstr.c \
                    ft_strjoin.c \
                    ft_isalpha.c \
@@ -44,8 +47,8 @@ SRCS            := ft_atoi.c \
 				   ft_putnbr_fd.c
 
 
-SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
-OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+SRCS		:= $(SRCS:%=%)
+OBJS		:= $(SRCS:%.c=%.o)
 
 BONUS		:=	ft_lstadd_back.c \
                 ft_lstadd_front.c \
@@ -57,17 +60,10 @@ BONUS		:=	ft_lstadd_back.c \
 				ft_lstnew.c \
 				ft_lstsize.c
 
-BONUS		:= $(BONUS:%=$(SRC_DIR)/%)
-BONUS_OBJS	:= $(BONUS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+BONUS		:= $(BONUS:%=%)
+BONUS_OBJS	:= $(BONUS:%.c=%.o)
 
-# Test files
-TESTS		:= ft_isalnum.test.c \
-               ft_isalpha.test.c \
-			   ft_bzero.test.c \
-			   ft_memset.test.c \
-			   ft_memcpy.test.c
-TESTS		:= $(TESTS:%=$(TEST_DIR)/%)
-TEST_OBJS	:= $(TESTS:$(TEST_DIR)/%.c=$(TEST_OBJ_DIR)/%.o)
+
 CRITERION	:= ${HOME}/sgoinfre/linuxbrew/.linuxbrew/Cellar/criterion/2.4.2_1/include
 
 # Include paths
@@ -102,14 +98,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c
-	mkdir -p $(TEST_OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Compiled $< to $@"
-
-# Rule to build the test runner (including Unity)
-$(TARGET): $(TEST_OBJS) $(OBJS)
-	$(CC) $(TEST_OBJS) $(OBJS) -o $(TARGET) $(NAME) $(LDFLAGS)
 
 # bonus
 bonus:	$(OBJS) $(BONUS_OBJS)
@@ -117,14 +105,14 @@ bonus:	$(OBJS) $(BONUS_OBJS)
 
 # Clean rule (remove object files)
 clean:
-	$(RM) $(OBJ_DIR)/*.o
+	$(RM) *.o
 
 # Full clean (remove object files and static library)
 fclean: clean
 	$(RM) $(NAME)
 
 # Rebuild the project
-re: fclean all test
+re: fclean all
 
 # Phony targets
-.PHONY: clean fclean re test
+.PHONY: clean fclean re

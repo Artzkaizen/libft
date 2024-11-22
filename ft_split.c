@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 19:45:59 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/14 19:50:12 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:45:19 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,17 @@ static char	*extract_word(char *str, char charset)
 	return (word);
 }
 
+static void	*ft_freeall(char **str, int i)
+{
+	while (i >= 0)
+	{
+		free(str[i]);
+		i--;
+	}
+	free(str);
+	return (NULL);
+}
+
 char	**ft_split(char *str, char sep)
 {
 	int		i;
@@ -70,7 +81,7 @@ char	**ft_split(char *str, char sep)
 
 	words = count_words(str, sep);
 	result = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!result)
+	if (!result || !str)
 		return (NULL);
 	i = 0;
 	while (*str)
@@ -79,7 +90,7 @@ char	**ft_split(char *str, char sep)
 		{
 			result[i] = extract_word(str, sep);
 			if (!result[i])
-				return (NULL);
+				return (ft_freeall(result, (i - 1)));
 			i++;
 			while (*str && !is_separator(*str, sep))
 				str++;

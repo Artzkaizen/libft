@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:45:25 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/18 18:39:21 by chuezeri         ###   ########.fr       */
+/*   Created: 2024/11/08 09:45:18 by chuezeri          #+#    #+#             */
+/*   Updated: 2024/11/22 15:34:47 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t			i;
-	unsigned char	*src;
-	unsigned char	*dst;
+	size_t	count;
+	size_t	src_lenght;
 
-	i = 0;
-	src = (unsigned char *)s1;
-	dst = (unsigned char *)s2;
-	while (i < n)
+	count = 0;
+	src_lenght = ft_strlen(src);
+	if (size == 0)
+		return (src_lenght);
+	while (src[count] && count < size - 1)
 	{
-		if (src[i] != dst[i])
-			return (src[i] - dst[i]);
-		i++;
+		dest[count] = src[count];
+		count++;
 	}
-	return (0);
+	dest[count] = '\0';
+	return (src_lenght);
 }
