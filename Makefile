@@ -6,7 +6,7 @@
 #    By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 09:18:55 by chuezeri          #+#    #+#              #
-#    Updated: 2024/11/20 09:18:58 by chuezeri         ###   ########.fr        #
+#    Updated: 2024/11/22 18:59:22 by chuezeri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ TARGET          := test_runner
 # Directories
 SRC_DIR         := src
 OBJ_DIR         := obj
-INC_DIR         := include
 UNITY_DIR       := ${HOME}/unity/src
 TEST_DIR        := test
 TEST_OBJ_DIR    := test/obj
@@ -79,14 +78,15 @@ BONUS_OBJS	:= $(BONUS:%.c=%.o)
 CRITERION	:= ${HOME}/sgoinfre/linuxbrew/.linuxbrew/Cellar/criterion/2.4.2_1/include
 
 # Include paths
-INCLUDES		:= -I $(INC_DIR) -I $(CRITERION)
+# INCLUDES		:= -I $(INC_DIR) -I $(CRITERION)
 
 
 # Compiler and flags
 CC              := cc
 CFLAGS          := -Wall -Wextra -Werror $(INCLUDES)
 DEBUG           := -g -fsanitize=leak
-LDFLAGS			:= -L${HOME}/sgoinfre/linuxbrew/.linuxbrew/Cellar/criterion/2.4.2_1/lib -lcriterion
+# LDFLAGS			:= -L${HOME}/sgoinfre/linuxbrew/.linuxbrew/Cellar/criterion/2.4.2_1/lib -lcriterion
+LDFLAGS			:=
 
 # Library archiving flags
 LIBFLAGS        := ar rcs
