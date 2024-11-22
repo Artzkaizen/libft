@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 23:26:10 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/22 17:58:16 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:49:14 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	new_lst = NULL;
 	if (new_lst)
-		return (NULL); 
+		return (NULL);
 	while (lst)
 	{
 		content = f(lst->content);

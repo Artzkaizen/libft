@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:46:04 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/13 17:24:31 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:19:27 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ char	*ft_strstr(const char *str, const char *to_find)
 	while (str[i])
 	{
 		count = 0;
-		while (str[count + i] && to_find[count] && str[i
-			+ count] == to_find[count])
+		while (str[count + i] && to_find[count]
+			&& str[i + count] == to_find[count])
 			count++;
 		if (to_find[count] == '\0')
 			return ((char *)&str[i]);
