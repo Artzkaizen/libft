@@ -6,12 +6,11 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:46:04 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/20 09:19:27 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:45:56 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 char	*ft_strstr(const char *str, const char *to_find)
 {

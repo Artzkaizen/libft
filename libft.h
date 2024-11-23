@@ -6,7 +6,7 @@
 /*   By: chuezeri <chuezeri@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:00:16 by chuezeri          #+#    #+#             */
-/*   Updated: 2024/11/20 09:19:41 by chuezeri         ###   ########.fr       */
+/*   Updated: 2024/11/23 18:06:36 by chuezeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -242,16 +242,77 @@ in the string s, or NULL if the character is not found.
 */
 char			*ft_strrchr(const char *s, int c);
 
+/*
+** Allocates (with malloc(3)) and returns a new node.
+The member variable ’content’ is initialized with
+the value of the parameter ’content’. The variable
+’next’ is initialized to NULL.
+*/
 t_list			*ft_lstnew(void const *content);
+
+/*
+** The length of the list
+*/
 int				ft_lstsize(t_list *lst);
+
+/*
+** Returns the last node of the list.
+*/
 t_list			*ft_lstlast(t_list *lst);
+
 void			*ft_calloc(size_t nmemb, size_t size);
+/*
+** Iterates the list ’lst’ and applies the function
+’f’ on the content of each node.
+*/
 void			ft_lstiter(t_list *lst, void (*f)(void *));
+/*
+** lst: The address of a pointer to the last link of
+a list.
+new: The address of a pointer to the node to be
+added to the list.
+*/
 void			ft_lstadd_back(t_list **lst, t_list *new);
+
+/*
+** lst: The address of a pointer to the first link of
+a list.
+new: The address of a pointer to the node to be
+added to the list.
+*/
 void			ft_lstadd_front(t_list **lst, t_list *new);
+
+/*
+** Frees the memory of
+the node’s content using the function ’del’ given
+as a parameter and free the node. The memory of
+’next’ is not freed.
+*/
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
+
+/*
+** Iterates the list ’lst’ and applies the function
+’f’ on the content of each node. Creates a new
+list resulting of the successive applications of
+the function ’f’. The ’del’ function is used to
+delete the content of a node if needed.
+*/
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+
+/*
+** Deletes and frees the given node and every
+successor of that node, using the function ’del’
+and free(3).
+Finally, the pointer to the list is set to
+NULL.
+*/
 void			ft_lstclear(t_list **lst, void (*del)(void*));
+
+/*
+** Returns a unique copy of
+’s1’ with the characters specified in ’set’ removed
+from the beginning and the end of the string.
+*/
 char			*ft_strtrim(char const *s1, char const *set);
 #endif
